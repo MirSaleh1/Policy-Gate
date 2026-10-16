@@ -17,7 +17,7 @@ public class RoleController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('ROLE_WRITE')")
-    public RoleResponse creatRole(@RequestParam String name){
+    public RoleResponse createRole(@RequestParam String name){
         return roleService.createRole(name);
     }
     

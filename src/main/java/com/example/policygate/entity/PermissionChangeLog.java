@@ -17,9 +17,9 @@ public class PermissionChangeLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String action; // e.g. "CREATED", "UPDATED", "ASSIGNED_TO_ROLE"
+    private String action;
     private String permissionName;
     private String roleName;
-    private String changedBy; // e.g. Admin username
+    private String changedBy;
     private LocalDateTime changeDate;
 }

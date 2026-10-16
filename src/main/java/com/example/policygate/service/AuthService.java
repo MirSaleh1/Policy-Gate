@@ -81,7 +81,7 @@ public class AuthService {
             
             if (jwtUtil.validateToken(reqRefreshToken, user.getEmail())) {
                 String newAccessToken = jwtUtil.generateToken(user.getEmail());
-                return new TokenResponse(newAccessToken, request.toString());
+                return new TokenResponse(newAccessToken, request.refreshToken());
             }
         }
         throw new BusinessException(ExceptionConstants.INVALID_REFRESH_TOKEN);

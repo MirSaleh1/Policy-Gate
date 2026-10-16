@@ -1,5 +1,6 @@
 package com.example.policygate.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
@@ -40,7 +41,7 @@ public class User implements UserDetails {
     private Set<Role> roles;
 
     @Override
-    @com.fasterxml.jackson.annotation.JsonIgnore
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
         for (Role role : roles) {
@@ -50,6 +51,10 @@ public class User implements UserDetails {
             }
         }
         return authorities;
+    }
+    @Override
+    public String getUsername() {
+        return email;
     }
 
 }
